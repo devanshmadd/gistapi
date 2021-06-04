@@ -7,27 +7,6 @@ const octokit = new Octokit();
 
 const GistList = ({gists}) => {
 
-//     const [gists,setGists] = useState([]);
-//     useEffect(()=>{
-//         async function getGists() {
-            
-            
-            
-//             console.log(await octokit.rest.gists.listForUser({
-//             username:props.username,
-//         }))
-        
-//     }
-
-
-   
-//     if(props.username){getGists()}
-// }
-// ,[]);
-
-
-
-
     return (
         <ol>
         {gists.map((gist, i) => (
