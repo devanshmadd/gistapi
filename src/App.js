@@ -1,42 +1,52 @@
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import { useEffect, useState } from 'react';
-import styled from 'styled-components'
-import Header from "./components/Header";
-import GlobalStyles from "./GlobalStyle";
-import GistList from "./components/GistList";
-import gistService, { getPublicGists } from "./services/gistService";
+import GlobalStyles from './GlobalStyle';
 
+import Header from './components/Header';
+import GistList from './components/GistList';
 
+import { getPublicGists } from './services/gistService';
 
 const App = () => {
-  const [username,setUsername] = useState("");
+  const [gists, setGists] = useState([]);
+  const [displayGists, setDisplayGists] = useState([]);
+  const [username, setUsername] = useState('');
+  const usernameCallBack = username => setUsername(username);
 
-  const [gists, setGists] = useState([])
-
-  useEffect(() => {
-    getPublicGists()
-    .then(response => response.data)
-      .then(gists => setGists(gists))
-  })
+  // only runs one time when component is mounted
+  useEffect(
+    () =>
+      getPublicGists()
+        .then(res => res.data)
+        .then(gists => {
+          setGists(gists);
+          setDisplayGists(gists);
+        })
+        .then(() => console.log('Public Gists Fetched!')),
+    []
+  );
 
   useEffect(() => {
     if (username) {
-      setGists(gists.filter(gist => gist.username === username))
+      const filteredGists = gists.filter(gist => {
+        let re = new RegExp(gist.owner.login, 'i');
+        return re.test(username);
+      });
+      setDisplayGists(filteredGists);
     }
-  }, [username])
-  
+  }, [username]);
 
+  useEffect(() => console.log(gists), [gists]);
 
   return (
     <Wrapper className="App" data-testid="app">
-     <Header username={username} setUsername={setUsername} />
-      <GistList gists={gists}/>
-
-
+      <Header usernameCallBack={usernameCallBack} />
+      <GistList gists={displayGists} />
       <GlobalStyles />
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.div`
   font-size: 14px;

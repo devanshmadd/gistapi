@@ -1,14 +1,14 @@
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
 import Search from './Search';
 
-function Header({username,setUsername}) {
+function Header({usernameCallBack}) {
 
   return (
     <Wrapper>
       <Octicon name="mark-github" mega/>
-      <Search username = {username} setUsername = {setUsername}/>
+      <Search usernameCallBack = {usernameCallBack}/>
     </Wrapper>
   )
 }

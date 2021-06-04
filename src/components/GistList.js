@@ -1,19 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Octokit } from "@octokit/rest";
-import {CodeIcon,RepoForkedIcon,CommentIcon,StarFillIcon, FileIcon} from '@primer/octicons-react'
+import React from 'react';
+//import { Octokit } from "@octokit/rest";
+import {BeakerIcon, HorizontalRuleIcon, ZapIcon} from '@primer/octicons-react'
+import Card from './Card';
 
-const octokit = new Octokit();
+const GistList = ({ gists }) => {
+  const changeDateFormat = date => {
+    return date;
+  };
 
-
-const GistList = ({gists}) => {
-
-    return (
-        <ol>
-        {gists.map((gist, i) => (
-      <li key={i}>{gist.url}</li>
-    ))}
+  return (
+    <ol>
+      {gists.map((gist, i) => (
+        <Card
+          key={i}
+          image ={gist.owner.avatar_url.png}
+          username={gist.owner.login}
+          totalFiles={3}
+          createdAt={changeDateFormat(gist.created_at)}
+          lastUpdated={gist.updated_at}
+          icon = {HorizontalRuleIcon}
+        />
+        
+        
+      ))}
     </ol>
-    )
-}
 
-export default GistList
+    );
+  
+};
+
+export default GistList;

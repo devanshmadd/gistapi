@@ -1,21 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
-import { Octokit } from "@octokit/rest";
+// import { Octokit } from "@octokit/rest";
 
-const octokit = new Octokit();
+// const octokit = new Octokit();
 
 
 
-const Search = (username,setUsername) => {
-
+const Search = ({ usernameCallBack }) => {
 
 
   return (
     <Wrapper>
       <InputBox>
       <Octicon name="search" />
-      <Input value={username} onChange={(e)=>{setUsername(e.target.value)}} placeholder="Search Gists for the username" />
+      <Input onChange={(e)=>{usernameCallBack(e.target.value)}} placeholder="Search Gists for the username" />
       </InputBox>
     </Wrapper>
   )
