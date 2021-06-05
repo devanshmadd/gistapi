@@ -12,8 +12,8 @@ It uses Github's [Octokit REST API](https://octokit.github.io/rest.js/v18/) -> u
 - Create a list of public gist available. -> done
 - Search Gists for the username. -> done
 - Use state management to save data and not make duplicate calls. -> done
-- Show all the relevant meta data available in the response. -> displaying the created and last_updated date but you can see all the other data in the console
-- We do expect you to create and use proper component hierarchy keeping service and components exclusive.
+- Show all the relevant meta data available in the response. -> done displaying the created and last_updated date but you can see all the other data fetched in the console so based on the requirements that can be fetched.
+- We do expect you to create and use proper component hierarchy keeping service and components exclusive. 
 - Please use git version control.
 
 ### Good to have
