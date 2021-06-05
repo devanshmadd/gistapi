@@ -1,6 +1,6 @@
+//fetching all the data from the array created in app.js and displaying in the card format designed in card.js
+
 import React from 'react';
-//import { Octokit } from "@octokit/rest";
-import {HorizontalRuleIcon} from '@primer/octicons-react'
 import Card from './Card';
 import dateFormat from 'dateformat';
 
@@ -15,7 +15,7 @@ const GistList = ({ gists }) => {
           image ={gist.owner.avatar_url}
           html_url = {gist.owner.html_url}
           username={gist.owner.login}
-          totalFiles={3}
+          totalFiles={1}
           forks_url={gist.forks_url}
           comments_url = {gist.comments_url}
           starred_url = {gist.owner.starred_url}
@@ -23,7 +23,7 @@ const GistList = ({ gists }) => {
           lastUpdated={dateFormat(gist.updatedAt, "mmmm dS, yyyy")}
           description = {gist.description}
           filename = {Object.entries(gist.files)[0][1].filename}
-          icon = {HorizontalRuleIcon}
+          file_url = {Object.entries(gist.files)[0][1].raw_url}
         />
       ))}
     </ol>

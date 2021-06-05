@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
-// import { Octokit } from "@octokit/rest";
-
-// const octokit = new Octokit();
 
 
 

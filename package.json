@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@octokit/rest": "^18.0.9",
     "@primer/octicons-react": "^14.2.1",
     "@testing-library/jest-dom": "^5.11.4",
