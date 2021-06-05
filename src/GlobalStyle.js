@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   body{
     margin: 0;
-    font-family: Helvetica Neue,Helvetica,Segoe UI,Arial,freesans,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #626465;
   }
   *{

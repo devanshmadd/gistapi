@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
 
-
-
 const Search = ({ usernameCallBack }) => {
 
 

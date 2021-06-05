@@ -1,5 +1,4 @@
-//fetching all the data from the array created in app.js and displaying in the card format designed in card.js
-
+//fetching all the data from the array created and displaying in the card format designed in card.js
 import React from 'react';
 import Card from './Card';
 import dateFormat from 'dateformat';

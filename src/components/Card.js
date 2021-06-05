@@ -111,7 +111,6 @@ const Info = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
 `;
 
 const Username = styled.div`
@@ -150,6 +149,7 @@ const Data = styled.div`
   background: White;
   display:flex;
   flex-direction: row;
+  align-items:center;
   height: auto;
   width: auto;
 `;

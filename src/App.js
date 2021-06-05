@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GlobalStyles from './GlobalStyle';
 import Header from './components/Header';
 import GistList from './components/GistList';
-import { getPublicGists} from './services/gistService';
+import { getPublicGists} from './services/gistService'; 
 
 const App = () => {
   const [gists, setGists] = useState([]); //fetch gists from the public gists available
