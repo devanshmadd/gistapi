@@ -30,8 +30,8 @@ const App = () => {
   useEffect(() => {
     if (username) {
       const filteredGists = gists.filter(gist => {
-        let re = new RegExp(gist.owner.login, 'i');
-        return re.test(username);
+        let re = new RegExp(username, 'i');
+        return re.test(gist.owner.login);
       });
       setDisplayGists(filteredGists);
     }

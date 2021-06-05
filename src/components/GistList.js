@@ -1,27 +1,30 @@
 import React from 'react';
 //import { Octokit } from "@octokit/rest";
-import {BeakerIcon, HorizontalRuleIcon, ZapIcon} from '@primer/octicons-react'
+import {HorizontalRuleIcon} from '@primer/octicons-react'
 import Card from './Card';
+import dateFormat from 'dateformat';
 
 const GistList = ({ gists }) => {
-  const changeDateFormat = date => {
-    return date;
-  };
+
 
   return (
     <ol>
       {gists.map((gist, i) => (
         <Card
           key={i}
-          image ={gist.owner.avatar_url.png}
+          image ={gist.owner.avatar_url}
+          html_url = {gist.owner.html_url}
           username={gist.owner.login}
           totalFiles={3}
-          createdAt={changeDateFormat(gist.created_at)}
-          lastUpdated={gist.updated_at}
+          forks_url={gist.forks_url}
+          comments_url = {gist.comments_url}
+          starred_url = {gist.owner.starred_url}
+          createdAt={dateFormat(gist.createdAt, "mmmm dS, yyyy")}
+          lastUpdated={dateFormat(gist.updatedAt, "mmmm dS, yyyy")}
+          description = {gist.description}
+          filename = {Object.entries(gist.files)[0][1].filename}
           icon = {HorizontalRuleIcon}
         />
-        
-        
       ))}
     </ol>
 
